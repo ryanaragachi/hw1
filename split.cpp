@@ -16,10 +16,27 @@ the function below should be the only one in this file.
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  /* Add code here */
+  /* Add code herd */
 // WRITE YOUR CODE HERE
-std::cout << "HI"';
 
+if (in == nullptr) return;
+Node* next_node = in->next;
+
+if (in->value % 2 == 0)
+{
+  evens = in;
+  evens->next = nullptr;
+  split(next_node, odds, evens->next);
+}
+
+else 
+{ 
+  odds = in;
+  odds->next = nullptr;
+  split(next_node, odds->next, evens);
+}
+
+in = nullptr;
 
 }
 
